@@ -60,6 +60,7 @@ table {
 		<style>
             body {
                 background-color: black;
+				height: 2700px;
             }
 			ul,
 			li {
@@ -91,7 +92,7 @@ table {
         </style>
 	</head>
 
-	<body onload="scrollToBottom()">
+	<body >
 		<div id="results">
 			<ul>
 				<li>
@@ -111,10 +112,7 @@ table {
 				</li>
 			</ul>
         </div>
-        <script>
-          function scrollToBottom() {
-            window.scrollTo(0, document.body.scrollHeight);
-       }</script>
+
 		<script>
 			(function() {
 
@@ -158,6 +156,10 @@ table {
 					callback_finish: callback_finish
 				});
 			})();
+		</script>
+		<script>
+
+			window.scrollTo(0, document.body.scrollHeight);
 		</script>
 	</body>
 </html>
