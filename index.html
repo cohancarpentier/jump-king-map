@@ -5,10 +5,10 @@
 		<title>
 			Single scrolling container - Lazyload tests
 		</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.4.0/dist/lazyload.min.js"></script>
-        <style>
-        /* http://meyerweb.com/eric/tools/css/reset/ 
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@12.4.0/dist/lazyload.min.js"></script>
+		<style>
+			/* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -56,12 +56,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-        </style>
-		<style>
-            body {
-                background-color: black;
-				height: 5400px;
-            }
+body{
+	background-color: black;
+}
 			ul,
 			li {
 				list-style-type: none;
@@ -70,6 +67,8 @@ table {
 			}
 
 			ul {
+				margin: auto;
+				max-width: 960px;
 				display: flex;
 				flex-direction: column-reverse;
 			}
@@ -81,9 +80,8 @@ table {
 
 			img {
 				border: 0;
-				width: 100%;
-                max-width: 960px;
-                margin: auto;
+				width: 960px;
+				height: 540px;
 			}
 
 			img:not([src]) {
@@ -94,48 +92,98 @@ table {
 				height: 100vh;
 				overflow-y: scroll;
 			}
-        </style>
+		</style>
 	</head>
 
-	<body >
-		<div id="results">
-			<ul>
+	<body>
+		<div id="results1" class="results">
+			<ul id="list">
 				<li>
-					<img alt="jump-king-1" src="./1.png" />
-                </li>
-                <li>
-					<img alt="jump-king-1" src="./2.png" />
-                </li>
-                <li>
-					<img alt="jump-king-1" src="./3.png" />
-                </li>
-                <li>
-					<img alt="jump-king-1" src="./4.png" />
-                </li>
-                <li>
-					<img alt="jump-king-1" src="./5.png" />
+			
+					<img
+					data-src="1.png"
+							width="960"
+							height="540"
+					/>
 				</li>
 				<li>
-					<img alt="jump-king-1" src="./6.png" />
+			
+					<img
+					data-src="2.png"
+							width="960"
+							height="540"
+					/>
 				</li>
 				<li>
-					<img alt="jump-king-1" src="./7.png" />
+			
+					<img
+					data-src="3.png"
+							width="960"
+							height="540"
+					/>
 				</li>
 				<li>
-					<img alt="jump-king-1" src="./8.png" />
+			
+					<img
+					data-src="4.png"
+							width="960"
+							height="540"
+					/>
 				</li>
 				<li>
-					<img alt="jump-king-1" src="./9.png" />
+			
+					<img
+					data-src="5.png"
+							width="960"
+							height="540"
+					/>
 				</li>
 				<li>
-					<img alt="jump-king-1" src="./10.png" />
+			
+					<img
+					data-src="6.png"
+							width="960"
+							height="540"
+					/>
+				</li>
+				<li>
+			
+					<img
+					data-src="7.png"
+							width="960"
+							height="540"
+					/>
+				</li>
+				<li>
+			
+					<img
+					data-src="8.png"
+							width="960"
+							height="540"
+					/>
+				</li>
+				<li>
+			
+					<img
+							data-src="9.png"
+							width="960"
+							height="540"
+					/>
+				</li>
+				<li>
+			
+					<img
+					data-src="10.png"
+							width="960"
+							height="540"
+					/>
 				</li>
 			</ul>
-        </div>
-
+		</div>
 		<script>
-			(function() {
+			document.getElementById('list').scrollIntoView({ block: 'end' });
 
+			(function() {
 				function logElementEvent(eventName, element) {
 					console.log(
 						Date.now(),
@@ -166,7 +214,7 @@ table {
 				};
 
 				var ll = new LazyLoad({
-					container: document.getElementById("results"),
+					container: document.getElementById("results1"),
 					// Assign the callbacks defined above
 					callback_enter: callback_enter,
 					callback_exit: callback_exit,
@@ -176,10 +224,6 @@ table {
 					callback_finish: callback_finish
 				});
 			})();
-		</script>
-		<script>
-
-			window.scrollTo(0, document.body.scrollHeight);
 		</script>
 	</body>
 </html>
